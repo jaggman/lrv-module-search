@@ -28,6 +28,7 @@
 </head>
 
 <body class="error-page sb-l-o sb-r-c">
+  @yield('style')
 
   <!-- Start: Main -->
   <div id="main">

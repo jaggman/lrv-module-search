@@ -35,7 +35,9 @@ $(function () {
         $.post(null,function(data){
             var x = (new Date()).getTime(), // current time
             y =  data - count;
-            series.addPoint([x, y], true, true);
+            //series.addPoint([x, y], true, true);
+            $('#container').highcharts().series[0].addPoint([x, y], true, true);
+            //console.log(series);
             count = data;
             setTimeout(function(){
                 getCount(series);
@@ -61,6 +63,18 @@ $(function () {
                 marginRight: 10,
                 events: {
                     load: function () {
+                        /*this.series[0].data = (function () {
+                            var data = [],
+                                time = (new Date()).getTime(),
+                                i;
+                            for (i = -149; i <= 0; i += 1) {
+                                data.push({
+                                    x: time + i * 3000,
+                                    y: 0
+                                });
+                            }
+                            return data;
+                        }());*/
                         getCount(this.series[0]);
                     }
                 }
